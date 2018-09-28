@@ -28,12 +28,14 @@ require('pry')
 
   movie1 = Movie.new({
     'title' => 'Inglorious Basterds',
-    'genre' => 'Comedy'
+    'genre' => 'Comedy',
+    'budget' => 15000000
     })
 
   movie2 = Movie.new({
     'title' => 'Catch Me If You Can',
-    'genre' => 'Horror'
+    'genre' => 'Horror',
+    'budget' => 10000000
     })
 
     movie1.save()

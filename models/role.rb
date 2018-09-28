@@ -10,7 +10,7 @@ class Role
     @id = options['id'].to_i if options['id']
     @actor_id = options['actor_id']
     @movie_id = options['movie_id']
-    @fee = options['fee']
+    @fee = options['fee'].to_i
   end
   #####################################################################
   #####################################################################
@@ -66,24 +66,6 @@ class Role
     WHERE id = $1"
     values = [@id]
    SqlRunner.run(sql, values)
-  end
-  #####################################################################
-  #####################################################################
-
-  def user()
-    sql = "SELECT * FROM users
-    WHERE id = $1"
-      results = SqlRunner.run(sql, [@user_id]) # needs the id of what I'm trying to find!
-      user = results.map { |result| User.new( result ) }
-      return user
-  end
-  #####################################################################
-  def location()
-    sql = "SELECT * FROM locations
-    WHERE id = $1"
-    result = SqlRunner.run(sql, [@location_id])
-    location = result.map { |result| Location.new( result ) }
-    return location
   end
 
  ######################################################################

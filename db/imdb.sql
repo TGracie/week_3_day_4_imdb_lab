@@ -10,12 +10,13 @@ CREATE TABLE actors(
 CREATE TABLE movies(
   id SERIAL4 PRIMARY KEY,
   title VARCHAR(255),
-  genre VARCHAR(255)
+  genre VARCHAR(255),
+  budget INT
 );
 
 CREATE TABLE roles(
   id SERIAL4 PRIMARY KEY,
   actor_id INT4 REFERENCES actors(id) ON DELETE CASCADE,
   movie_id INT4 REFERENCES movies(id) ON DELETE CASCADE,
-  fee INT4
+  fee INT
 );
